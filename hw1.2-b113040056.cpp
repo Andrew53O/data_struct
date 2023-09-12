@@ -2,28 +2,39 @@
 
 using namespace std;
 
+// global prototypes
 void printFac(int N);
 
 int main(void)
 {
-	int n = 1; 
-	while(n != 0) 
+ // placeholder for input value
+	int n;
+ 
+	while(true) 
 	{
 		cin >> n; // bisa pakek vector buat simpen valuenya baru bisa di print out
 		
+  // terminate the loop
+		if (n == 0)
+					break;
+
 		printFac(n);
+
 	}
-	
-	
+	 
 	return 0;
 }
 
+// print 1! to N! 
 void printFac(int N)
 {
+ // default array length
 	int lengthArray = 10;
-	// declare a dynamic array with size of 10 
+
+	// declare a dynamic array 
 	int *array  = new int[lengthArray];
 	
+ // initialize array with 0
 	for (int i = 0; i < lengthArray; i++)
 	{
 		array[i] = 0;
@@ -31,13 +42,10 @@ void printFac(int N)
 	
 	// insert default value
 	array[0] = 1;
-	
-	if (N > 0)
-	{
+
+ // output the default value
 		cout << "1!=1" << endl;	
-	}
-	
-	
+
 	for (int i = 2; i <= N; i++)
 	{
 		// mutliply all element with i 
@@ -94,27 +102,33 @@ void printFac(int N)
 		}
 		
 		// output every loop
+
 		bool findFirstNum = false;
-		
-		
-		
+		int startingIndex;  // placeholder of starting Index
+
+
 		cout << i << "!=";
 		
+		// find the index of the first digit
 		for (int l = lengthArray -1 ; l >= 0; l--)
 		{
+			
 			if (array[l] != 0)
 			{
 				findFirstNum = true;
+				startingIndex = l;
 			}
-			
-			if (findFirstNum == true)
-			{
-				cout << array[l];
-			}
+				
 		}
+		
+		// output the complete number
+		for (int l = startingIndex; l >= 0; l--)
+		{
+			cout << array[l];
+
+		}
+
 		cout << endl;
 		
 	}
-	
-	
 }
