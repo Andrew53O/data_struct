@@ -7,19 +7,21 @@ void printFac(int N);
 
 int main(void)
 {
- // placeholder for input value
+	// placeholder for input value
 	int n;
  
+	// Keep looping until break case
 	while(true) 
 	{
-		cin >> n; // bisa pakek vector buat simpen valuenya baru bisa di print out
-		
-  // terminate the loop
+		// reading input
+		cin >> n; 
+
+		// terminate the loop
 		if (n == 0)
-					break;
+			break;
 
+		// call the function each loop
 		printFac(n);
-
 	}
 	 
 	return 0;
@@ -28,13 +30,13 @@ int main(void)
 // print 1! to N! 
 void printFac(int N)
 {
- // default array length
+ 	// default array length
 	int lengthArray = 10;
 
 	// declare a dynamic array 
 	int *array  = new int[lengthArray];
 	
- // initialize array with 0
+ 	// initialize array with 0
 	for (int i = 0; i < lengthArray; i++)
 	{
 		array[i] = 0;
@@ -43,8 +45,8 @@ void printFac(int N)
 	// insert default value
 	array[0] = 1;
 
- // output the default value
-		cout << "1!=1" << endl;	
+ 	// output the default value
+	cout << "1!=1" << endl;	
 
 	for (int i = 2; i <= N; i++)
 	{
@@ -54,26 +56,32 @@ void printFac(int N)
 			array[j] = array[j] * i;
 		}
 		
+		// check every number in the array
 		for (int k = 0; k < lengthArray; k++)
 		{
-			
 			if(array[k] >= 10)
 			{
-				// pass the value to front
+				// variable for exceeded value
 				int more = array[k] / 10;
 				
+				// keep the ones
 				array[k] = array[k] % 10;
 				
-				// check whether overflow or not
+				// check whether the length of the dynamic array
 				if (k + 1 < lengthArray)
 				{
+					// insert the exceeded value 
 					array[k + 1] += more;
 				}
-				else
+				else // make the length longer
 				{
-					// make 2 times dynamic array and copy the value
-					int oldLengthArray = lengthArray;
+					// temporary placholder for old length 
+					int oldLengthArray = lengthArray; 
+
+					// make the length longer
 					lengthArray = lengthArray * 2;
+
+					// new dynamic array
 				    int* newArray = new int[lengthArray];
 				
 					// initialize array with 0
@@ -86,8 +94,6 @@ void printFac(int N)
 				    for (int i = 0; i < oldLengthArray; i++) {
 				        newArray[i] = array[i];
 				    }
-
-					cout << endl;
 				
 				    // Deallocate the old array
 				    delete[] array;
@@ -95,40 +101,42 @@ void printFac(int N)
 				    // Update the pointer to the new array
 				    array = newArray;
 	
-					// add the number
+					// insert the exceeded value 
 					array[k + 1] += more;
 				}
+
 			}
 		}
 		
-		// output every loop
+		// placeholder of starting Index
+		int startingIndex = 0;  
 
-		bool findFirstNum = false;
-		int startingIndex;  // placeholder of starting Index
-
-
+		// output the 1 to N number
 		cout << i << "!=";
 		
 		// find the index of the first digit
 		for (int l = lengthArray -1 ; l >= 0; l--)
 		{
-			
+			// find the first nonzero
 			if (array[l] != 0)
 			{
-				findFirstNum = true;
+				// set the index to the variable
 				startingIndex = l;
+				break;
 			}
-				
 		}
 		
-		// output the complete number
+		// Output the complete number
 		for (int l = startingIndex; l >= 0; l--)
 		{
 			cout << array[l];
-
 		}
 
+		// New line for every number in N! 
 		cout << endl;
 		
 	}
+
+	// New line for every factorial
+	cout << endl;
 }

@@ -1,4 +1,4 @@
-// Author : ¬x²z¤t B113040056
+// Author : ï¿½xï¿½zï¿½t B113040056
 // Date   : 2023/09/11
 // Purpose: To construct a NxN magic square(for odd N)
 
