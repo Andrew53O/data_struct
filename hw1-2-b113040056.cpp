@@ -1,3 +1,7 @@
+// Author : 洪理川 B113040056
+// Date   : 2023/09/11
+// Purpose: Print 1! to N! (N factorial), with dynamic array
+
 #include <iostream>
 
 using namespace std;
@@ -30,7 +34,7 @@ int main(void)
 // print 1! to N! 
 void printFac(int N)
 {
- 	// default array length
+ 	// default array length, must be positive
 	int lengthArray = 10;
 
 	// declare a dynamic array 
@@ -45,10 +49,8 @@ void printFac(int N)
 	// insert default value
 	array[0] = 1;
 
- 	// output the default value
-	cout << "1!=1" << endl;	
-
-	for (int i = 2; i <= N; i++)
+	// compute factorial from 1 to N!
+	for (int i = 1; i <= N; i++)
 	{
 		// mutliply all element with i 
 		for (int j = 0; j < lengthArray; j++)
