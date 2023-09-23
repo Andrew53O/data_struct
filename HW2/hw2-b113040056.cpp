@@ -28,6 +28,8 @@ class Set
 
     friend const Set operator *(Set& ASet, Set& BSet);
 
+    friend const Set operator -(Set& ASet, Set& BSet);
+
 
     // = operator
 
@@ -73,6 +75,11 @@ int main(void)
         C = A * B;
 
         cout << "A*B: " << C;
+
+
+        C = A - B;
+
+        cout << "A-B: " << C;
     }
 }
 
@@ -188,6 +195,34 @@ const Set operator *(Set& ASet, Set& BSet)
 }
 
 
+const Set operator -(Set& ASet, Set& BSet)
+{
+    Set C;
+    int tempIndex = 0;
+    bool exist = false;
+
+    for (int i = 0; i < strlen(ASet.arr); i++)
+    {
+        exist = false;
+        for (int j = 0; j < strlen(BSet.arr); j++)
+        {
+            if (ASet.arr[i] == BSet.arr[j])
+            {
+                exist = true;
+            }
+        }
+
+        // element in A does'nt exist in B
+        if (!exist)
+        {
+            C.arr[tempIndex] = ASet.arr[i];
+            tempIndex++;
+        }
+    }
+
+    return C;
+}
+
 
 
 int countFilledLength(const char arr[])
@@ -283,4 +318,5 @@ void removeDuplicateCharacter(char arr[])
 
 // to do 
 // 1. continue finish all of the operator
+// - operator
 
