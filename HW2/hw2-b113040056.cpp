@@ -4,6 +4,7 @@ using namespace std;
 
 // global prototypes
 int countFilledLength(char arr[]);
+void removeDuplicateCharacter(char arr[]);
 
 class Set 
 {   
@@ -70,6 +71,9 @@ istream& operator >>(istream& inputStream, Set& ASet)
 
     cout << "arrnya " << ASet.arr << endl;
 
+    // remove duplicate
+    removeDuplicateCharacter(ASet.arr);
+
     return inputStream;
 }
 
@@ -88,12 +92,8 @@ ostream& operator <<(ostream& outputStream, Set& ASet)
                 char temp = ASet.arr[i];
                 ASet.arr[i] = ASet.arr[j];
                 ASet.arr[j] = temp; 
-                // cout << temp;
-                // cout << ASet.arr[i];
-                // cout << ASet.arr[j];
             }
         }
-        
 
     }
     ASet.arr[sizeof(ASet.arr) - 1] = '\0';
@@ -114,7 +114,24 @@ int countFilledLength(char arr[])
     return length;
 }
 
+vi
+
+void removeDuplicateCharacter(char arr[])
+{
+    int arrayLength = countFilledLength(arr);
+
+    int tempArray[arrayLength];
+
+    for (int i = 0; i < arrayLength - 1; i++)
+    {
+        if (arr[])
+    }
+
+}
+
+
 // to do 
+// remove duplicate charater
 // 1. create '=' operator
 // 2. test the + operator
 // 3. continue finish all of the operator
