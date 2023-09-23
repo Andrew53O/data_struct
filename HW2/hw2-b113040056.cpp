@@ -6,6 +6,8 @@ using namespace std;
 int countFilledLength(const char arr[]);
 void sortArrayBasedOnASCII(char arr[]);
 void removeDuplicateCharacter(char arr[]);
+void swap (char& a, char& b);
+
 
 class Set 
 {   
@@ -22,8 +24,10 @@ class Set
     // using member function copy only arr[256]
     Set& operator=(const Set& ASet);
     
-    friend const Set operator +(const Set& ASet, const Set& BSet); 
+    friend const Set operator +( Set& ASet,  Set& BSet); 
 
+    friend const Set operator *(Set& ASet, Set& BSet);
+    
 
     // = operator
 
@@ -62,9 +66,9 @@ int main(void)
         cout << B;
         Set C;
 
-        C = A;
+        C = A + B;
 
-        cout << "cout C = " << C;
+        cout << C;
     }
 }
 
@@ -78,11 +82,7 @@ Set::Set()
     }
 }
 
-const Set operator +(const Set& ASet, const Set& BSet)
-{
 
-    return ASet;
-}
 
 istream& operator >>(istream& inputStream, Set& ASet)
 {
@@ -101,6 +101,12 @@ istream& operator >>(istream& inputStream, Set& ASet)
 
 ostream& operator <<(ostream& outputStream, Set& ASet)
 {
+    // sort the array 
+    sortArrayBasedOnASCII(ASet.arr);
+
+    // remove the duplicate
+    removeDuplicateCharacter(ASet.arr);
+
     cout << "{";
     
     for (int i = 0; i < countFilledLength(ASet.arr); i++)
@@ -127,6 +133,37 @@ Set& Set::operator=(const Set& ASet)
 }
 
 
+const Set operator +(Set& ASet, Set& BSet)
+{
+    int arrayAlength = strlen(ASet.arr);
+    int arrayBlength = strlen(BSet.arr);
+
+    int totalLength = arrayAlength + arrayBlength ;
+
+    Set C;
+
+    int j = 0;
+    for (int i = 0; i < totalLength; i++)
+    {
+        if (i < arrayAlength)
+        {
+            C.arr[i] = ASet.arr[i];
+        }
+        else
+        {
+            C.arr[i] = BSet.arr[j];
+            j++; // index for the second array
+        }
+    }
+
+    C.arr[totalLength] = '\0';
+
+    return C;
+}
+
+
+
+
 int countFilledLength(const char arr[])
 {
     int length = 0;
@@ -139,6 +176,13 @@ int countFilledLength(const char arr[])
     return length;
 }
 
+void swap (char& a, char& b)
+{
+    char temp = a;
+    a = b;
+    b = temp;
+}
+
 void sortArrayBasedOnASCII(char arr[])
 {
     // using bubble sort to sort based on ASCII values
@@ -148,9 +192,7 @@ void sortArrayBasedOnASCII(char arr[])
         {
             if (arr[i] > arr[j])
             {
-                char temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp; 
+                swap(arr[i], arr[j]);
             }
         }
 
@@ -214,6 +256,5 @@ void removeDuplicateCharacter(char arr[])
 
 
 // to do 
-// 1. create '=' operator
-// 2. test the + operator
-// 3. continue finish all of the operator
+// 1. continue finish all of the operator
+
