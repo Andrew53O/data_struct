@@ -68,7 +68,11 @@ int main(void)
 
         C = A + B;
 
-        cout << C;
+        cout << "A+B: " << C;
+
+        C = A * B;
+
+        cout << "A*B: " << C;
     }
 }
 
@@ -121,8 +125,7 @@ ostream& operator <<(ostream& outputStream, Set& ASet)
 Set& Set::operator=(const Set& ASet)
 {
     int arrayLength = countFilledLength(ASet.arr);
-    cout << "lengthnya adalah" << arrayLength << endl;
-
+ 
     for (int i = 0; i < arrayLength; i++)
     {
         this->arr[i] = ASet.arr[i];
@@ -163,7 +166,25 @@ const Set operator +(Set& ASet, Set& BSet)
 
 const Set operator *(Set& ASet, Set& BSet)
 {
-    
+    Set C;
+    int tempIndex = 0;
+
+    for (int i = 0; i < strlen(ASet.arr); i++)
+    {
+        for (int j = 0; j < strlen(BSet.arr); j++)
+        {
+            if(ASet.arr[i] == BSet.arr[j])
+            {
+                C.arr[tempIndex] = ASet.arr[i];
+                tempIndex++;
+            }
+        }
+
+    }
+
+    C.arr[tempIndex] = '\0';
+
+    return C;
 }
 
 
