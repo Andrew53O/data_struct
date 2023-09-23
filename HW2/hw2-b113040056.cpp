@@ -30,6 +30,8 @@ class Set
 
     friend const Set operator -(Set& ASet, Set& BSet);
 
+    friend void operator >=(Set& ASet, Set& BSet);
+
 
     // = operator
 
@@ -80,6 +82,9 @@ int main(void)
         C = A - B;
 
         cout << "A-B: " << C;
+
+        A >= B;
+        B >= A;
     }
 }
 
@@ -219,6 +224,7 @@ const Set operator -(Set& ASet, Set& BSet)
             tempIndex++;
         }
     }
+    C.arr[tempIndex] = '\0';
 
     return C;
 }
@@ -236,6 +242,33 @@ int countFilledLength(const char arr[])
 
     return length;
 }
+
+void operator >=(Set& ASet, Set& BSet)
+{
+
+    int same = 0;
+    for (int i = 0; i < strlen(BSet.arr); i++)
+    {
+        for (int j = 0; j < strlen(ASet.arr); j++)
+        {
+            if (BSet.arr[i] == ASet.arr[j])
+            {
+                same++;
+                break;
+            }
+        }
+    }
+
+    if (same == strlen(BSet.arr))
+    {
+        cout << "contains";
+    }
+    else
+    {
+        cout << "does not contain";
+    }
+}
+
 
 void swap (char& a, char& b)
 {
