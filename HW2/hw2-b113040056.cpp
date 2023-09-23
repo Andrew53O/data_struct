@@ -1,62 +1,76 @@
+// Author: 洪理川 B113040056
+// Date: Sept. 23 2023
+// Purpose: Using C++ to implement a Set class which provides some basic operations
+
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 // global prototypes
-int countFilledLength(const char arr[]);
+
+// sort an array of based on it's ASCII values
 void sortArrayBasedOnASCII(char arr[]);
+
+// remove duplicate elements from an Array
 void removeDuplicateCharacter(char arr[]);
+
+// swap values using reference
 void swap (char& a, char& b);
 
-
+// defined a class called Set
 class Set 
 {   
     public:
 
+    // constructor
     Set();
 
-    // input output operator overloading
+    // get a line from input and sort & remove duplicate
     friend istream& operator >>(istream& inputStream, Set& ASet);
 
-    // formatted output sorting with ASCII included
+    // formatted output sorting with ASCII included and removed duplicate
     friend ostream& operator <<(ostream& outputStream, Set& ASet);
     
-    // using member function copy only arr[256]
+    // copy arr[256]
     Set& operator=(const Set& ASet);
     
+    // union of Set A and Set B
     friend const Set operator +( Set& ASet,  Set& BSet); 
 
+    // intersection of Set A and Set B
     friend const Set operator *(Set& ASet, Set& BSet);
 
+    // The difference of A and B
     friend const Set operator -(Set& ASet, Set& BSet);
 
+    // find out if ASet contains BSet
     friend void operator >=(Set& ASet, Set& BSet);
     
+    // find a character belongs to this Set
     void in(char x);
 
-
-
-
     private:
+    // array for saving the set elements limit to 256 elements
     char arr[256];
-    char findChar;
-
 };
-
-
 
 int main(void)
 {
-
+    // variable for how much test Cases
     int testCases;
 
+    // read input
     cin >> testCases;
     
+    // looping testCases times
     while (testCases--)
     {
         // clearing the input buffer
         fflush(stdin);
+
+        // declaring 2 sets
         Set A, B;
+        // variable for finded charater
         char aCharacter;
 
         // input for set A and B
@@ -66,68 +80,72 @@ int main(void)
         // input for a single charater tested in set A or set B
         cin >> aCharacter;
 
-        // all operations
-        cout << A;
-        cout << B;
+        // output value Set A and B
+        cout <<"A: " << A;
+        cout <<"B: " << B;
+
+        // Declare Set C for assign it
         Set C;
 
+        // The union of A and B
         C = A + B;
-
         cout << "A+B: " << C;
 
+        // The intersection of A and B
         C = A * B;
-
         cout << "A*B: " << C;
 
-
+        // what elements that B doesn't have (in A)
         C = A - B;
-
         cout << "A-B: " << C;
 
+        // what elements that A doesn't have (in B)
         C = B - A;
-
         cout << "B-A: " << C;
 
-        A >= B;
-        B >= A;
+        // check if A contains B or B contains A or not either
+        cout << "A "; A >= B; cout << " B" << endl;
+        cout << "B "; B >= A; cout << " A" << endl;
 
-        A.in(aCharacter);
-        B.in(aCharacter);
+        // find if a character belongs to A or B set or not either
+        A.in(aCharacter); cout << " A" << endl;
+        B.in(aCharacter); cout << " B" << endl;
         
-
+        // a blank between test cases
+        cout << endl;
     }
 }
 
 
-
+// constructor definition
 Set::Set()
 {
+    // initialize value with NULL
     for (int i = 0; i < 256; i++)
     {
         arr[i] = '\0';
     }
 }
 
-
-
+// input definition 
 istream& operator >>(istream& inputStream, Set& ASet)
 {
+    // read input by reading a line
     inputStream.getline(ASet.arr, sizeof(ASet.arr));
 
-    cout << "arrnya " << ASet.arr << endl;
-    
+    // sort array by it's ASCII values
     sortArrayBasedOnASCII(ASet.arr);
-    cout << countFilledLength(ASet.arr) << "??" << strlen(ASet.arr);
+    
     // remove duplicate
     removeDuplicateCharacter(ASet.arr);
-    cout << countFilledLength(ASet.arr) << "??" << strlen(ASet.arr);
 
     return inputStream;
 }
 
+// output definition
 ostream& operator <<(ostream& outputStream, Set& ASet)
 {
-    // sort the array 
+    // sort array by it's ASCII values
     sortArrayBasedOnASCII(ASet.arr);
 
     // remove the duplicate
@@ -135,39 +153,46 @@ ostream& operator <<(ostream& outputStream, Set& ASet)
 
     cout << "{";
     
-    for (int i = 0; i < countFilledLength(ASet.arr); i++)
+    // output the set
+    for (int i = 0; i < strlen(ASet.arr); i++)
     {
         cout << ASet.arr[i]; 
     }
-    cout << "}";
+    cout << "}" << endl;
+
     return outputStream;
 }
 
-
+// assigment operator definiton
 Set& Set::operator=(const Set& ASet)
 {
-    int arrayLength = countFilledLength(ASet.arr);
+    int arrayLength = strlen(ASet.arr);
  
+    // copy all of it's content to new array
     for (int i = 0; i < arrayLength; i++)
     {
         this->arr[i] = ASet.arr[i];
     }
+    // add a null terminator
     this->arr[arrayLength] = '\0';
 
     return *this;
 }
 
-
+// union operator definition
 const Set operator +(Set& ASet, Set& BSet)
 {
+    // find the sum of two array length
     int arrayAlength = strlen(ASet.arr);
     int arrayBlength = strlen(BSet.arr);
-
-    int totalLength = arrayAlength + arrayBlength ;
+    int totalLength = arrayAlength + arrayBlength;
 
     Set C;
 
+    // variable for the second array
     int j = 0;
+
+    // copy the values from array A and B
     for (int i = 0; i < totalLength; i++)
     {
         if (i < arrayAlength)
@@ -181,16 +206,21 @@ const Set operator +(Set& ASet, Set& BSet)
         }
     }
 
+    // add a null terminator
     C.arr[totalLength] = '\0';
 
     return C;
 }
 
+// intersection operator definition
 const Set operator *(Set& ASet, Set& BSet)
 {
     Set C;
+    // variable for new array index
     int tempIndex = 0;
 
+    // find the same value from Set A and Set B 
+    // add it to C array
     for (int i = 0; i < strlen(ASet.arr); i++)
     {
         for (int j = 0; j < strlen(BSet.arr); j++)
@@ -204,20 +234,25 @@ const Set operator *(Set& ASet, Set& BSet)
 
     }
 
+    // add a null terminator
     C.arr[tempIndex] = '\0';
 
     return C;
 }
 
-
+// difference operator definition
 const Set operator -(Set& ASet, Set& BSet)
 {
     Set C;
+    // variable for new array index
     int tempIndex = 0;
+    // variable for know if a character exist in both Set
     bool exist = false;
 
+    // Find the character which is not exist in B Set
     for (int i = 0; i < strlen(ASet.arr); i++)
     {
+        // reset exist every i loop
         exist = false;
         for (int j = 0; j < strlen(BSet.arr); j++)
         {
@@ -230,22 +265,23 @@ const Set operator -(Set& ASet, Set& BSet)
         // element in A does'nt exist in B
         if (!exist)
         {
+            // add element into C array
             C.arr[tempIndex] = ASet.arr[i];
             tempIndex++;
         }
     }
+    // add a null terminator
     C.arr[tempIndex] = '\0';
 
     return C;
 }
 
-
-
-
+// contains operator definition
 void operator >=(Set& ASet, Set& BSet)
 {
+    int same = 0; // variable for count the same elements
 
-    int same = 0;
+    // find if every element of B Set is exist in A Set
     for (int i = 0; i < strlen(BSet.arr); i++)
     {
         for (int j = 0; j < strlen(ASet.arr); j++)
@@ -258,6 +294,7 @@ void operator >=(Set& ASet, Set& BSet)
         }
     }
 
+    // check if all elements in B Set exist in A Set
     if (same == strlen(BSet.arr))
     {
         cout << "contains";
@@ -268,39 +305,29 @@ void operator >=(Set& ASet, Set& BSet)
     }
 }
 
+// belongs to operator definition
 void Set::in(char x)
 {
-    cout << "yang dicari" << x << endl; 
+
     bool found = false;
+    // find if this Set contains x
     for (int i = 0; i < strlen(this->arr); i++)
     {
         if (x == this->arr[i])
         {
             found = true;
-            break;
+            break; // terminate the loop
         }
     }
 
+    // output the answer
     if (found)
-        cout << "'" << x << "' is in" << endl;
+        cout << "'" << x << "' is in";
     else
-        cout << "'" << x << "' is not in" << endl;  
+        cout << "'" << x << "' is not in"; 
 }
 
-
-int countFilledLength(const char arr[])
-{
-    int length = 0;
-
-    while(arr[length] != '\0')
-    {
-        length++;
-    }
-
-    return length;
-}
-
-
+// swap 2 values with reference
 void swap (char& a, char& b)
 {
     char temp = a;
@@ -308,12 +335,13 @@ void swap (char& a, char& b)
     b = temp;
 }
 
+// sort Array based on it's ASCII values
 void sortArrayBasedOnASCII(char arr[])
 {
     // using bubble sort to sort based on ASCII values
-    for (int i = 0; i < countFilledLength(arr); i++)
+    for (int i = 0; i < strlen(arr); i++)
     {
-        for (int j = i + 1; j < countFilledLength(arr); j++)
+        for (int j = i + 1; j < strlen(arr); j++)
         {
             if (arr[i] > arr[j])
             {
@@ -322,17 +350,19 @@ void sortArrayBasedOnASCII(char arr[])
         }
 
     }
-    arr[countFilledLength(arr)] = '\0';
+    arr[strlen(arr)] = '\0';
 }
 
+// remove the duplicate character from arr
 void removeDuplicateCharacter(char arr[])
 {
-    int arrayLength = countFilledLength(arr);
+    int arrayLength = strlen(arr);
 
+    // create an dynamic array to save the new array without duplicate elements
     char *tempArray = new char[arrayLength];
     if (tempArray == NULL)
     {
-        fprintf(stderr, "Memory allocation failed\n");
+        cout << "Memory allocation failed"<< endl;
         return; // Handle memory allocation failure
     }
 
@@ -346,8 +376,10 @@ void removeDuplicateCharacter(char arr[])
     int tempArrayIndex = 0;
     bool isDuplicate = false;
 
+    // find the non duplicate elements in sorted Set
     for (int i = 0; i < arrayLength; i++)
     {   
+        // set every j loop
         isDuplicate = false;
 
         // because it is sorted we can assign j = i + 1
@@ -360,14 +392,16 @@ void removeDuplicateCharacter(char arr[])
             }   
         }
 
+        // if a elements is not duplicate 
         if (isDuplicate == false)
         {
+            // save the elements into new array
             tempArray[tempArrayIndex] = arr[i];
             tempArrayIndex++;
         }
     }
 
-    // copy the temporary to the array
+    // copy the new array back to array
     for (int i = 0; i < tempArrayIndex; i++)
     {
         arr[i] = tempArray[i];
@@ -376,11 +410,8 @@ void removeDuplicateCharacter(char arr[])
     // add null terminator
     arr[tempArrayIndex] = '\0';
 
+    // free the allocated memory
     delete[] tempArray;
 }
 
-
-// to do 
-// 1. continue finish all of the operator
-// - operator
 
