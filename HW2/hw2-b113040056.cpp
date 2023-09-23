@@ -27,7 +27,7 @@ class Set
     friend const Set operator +( Set& ASet,  Set& BSet); 
 
     friend const Set operator *(Set& ASet, Set& BSet);
-    
+
 
     // = operator
 
@@ -159,6 +159,11 @@ const Set operator +(Set& ASet, Set& BSet)
     C.arr[totalLength] = '\0';
 
     return C;
+}
+
+const Set operator *(Set& ASet, Set& BSet)
+{
+    
 }
 
 
