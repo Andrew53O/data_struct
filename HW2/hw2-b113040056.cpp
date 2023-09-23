@@ -31,9 +31,10 @@ class Set
     friend const Set operator -(Set& ASet, Set& BSet);
 
     friend void operator >=(Set& ASet, Set& BSet);
+    
+    void in(char x);
 
 
-    // = operator
 
 
     private:
@@ -56,7 +57,7 @@ int main(void)
         // clearing the input buffer
         fflush(stdin);
         Set A, B;
-        int aCharacter;
+        char aCharacter;
 
         // input for set A and B
         cin >> A;
@@ -83,8 +84,17 @@ int main(void)
 
         cout << "A-B: " << C;
 
+        C = B - A;
+
+        cout << "B-A: " << C;
+
         A >= B;
         B >= A;
+
+        A.in(aCharacter);
+        B.in(aCharacter);
+        
+
     }
 }
 
@@ -231,17 +241,6 @@ const Set operator -(Set& ASet, Set& BSet)
 
 
 
-int countFilledLength(const char arr[])
-{
-    int length = 0;
-
-    while(arr[length] != '\0')
-    {
-        length++;
-    }
-
-    return length;
-}
 
 void operator >=(Set& ASet, Set& BSet)
 {
@@ -267,6 +266,38 @@ void operator >=(Set& ASet, Set& BSet)
     {
         cout << "does not contain";
     }
+}
+
+void Set::in(char x)
+{
+    cout << "yang dicari" << x << endl; 
+    bool found = false;
+    for (int i = 0; i < strlen(this->arr); i++)
+    {
+        if (x == this->arr[i])
+        {
+            found = true;
+            break;
+        }
+    }
+
+    if (found)
+        cout << "'" << x << "' is in" << endl;
+    else
+        cout << "'" << x << "' is not in" << endl;  
+}
+
+
+int countFilledLength(const char arr[])
+{
+    int length = 0;
+
+    while(arr[length] != '\0')
+    {
+        length++;
+    }
+
+    return length;
 }
 
 
