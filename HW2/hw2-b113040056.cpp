@@ -78,7 +78,7 @@ int main(void)
         cin >> B;
 
         // input for a single charater tested in set A or set B
-        cin >> aCharacter;
+        cin.get(aCharacter);
 
         // output value Set A and B
         cout <<"A: " << A;
@@ -308,7 +308,6 @@ void operator >=(Set& ASet, Set& BSet)
 // belongs to operator definition
 void Set::in(char x)
 {
-
     bool found = false;
     // find if this Set contains x
     for (int i = 0; i < strlen(this->arr); i++)
@@ -405,7 +404,6 @@ void removeDuplicateCharacter(char arr[])
     for (int i = 0; i < tempArrayIndex; i++)
     {
         arr[i] = tempArray[i];
-
     }
     // add null terminator
     arr[tempArrayIndex] = '\0';
