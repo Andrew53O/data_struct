@@ -130,8 +130,8 @@ Set::Set()
 // input definition 
 istream& operator >>(istream& inputStream, Set& ASet)
 {
-    // read input by reading a line
-    inputStream.getline(ASet.arr, sizeof(ASet.arr));
+    // read input by reading a line, + 1 for to account for the null terminator ('\0') that is automatically placed at the end of the string in C++ to indicate the end of the string.
+    inputStream.getline(ASet.arr, sizeof(ASet.arr) + 1);
 
     // sort array by it's ASCII values
     sortArrayBasedOnASCII(ASet.arr);
