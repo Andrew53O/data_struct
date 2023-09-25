@@ -1,3 +1,7 @@
+// testinghw2_console.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+
 // Author: 洪理川 B113040056
 // Date: Sept. 23 2023
 // Purpose: Using C++ to implement a Set class which provides some basic operations
@@ -15,13 +19,14 @@ void sortArrayBasedOnASCII(char arr[]);
 // remove duplicate elements from an Array
 void removeDuplicateCharacter(char arr[]);
 
+
 // swap values using reference
-void swap (char& a, char& b);
+void swap(char& a, char& b);
 
 // defined a class called Set
-class Set 
-{   
-    public:
+class Set
+{
+public:
 
     // constructor
     Set();
@@ -31,12 +36,12 @@ class Set
 
     // formatted output sorting with ASCII included and removed duplicate
     friend ostream& operator <<(ostream& outputStream, Set& ASet);
-    
+
     // copy arr[256]
     Set& operator=(const Set& ASet);
-    
+
     // union of Set A and Set B
-    friend const Set operator +( Set& ASet,  Set& BSet); 
+    friend const Set operator +(Set& ASet, Set& BSet);
 
     // intersection of Set A and Set B
     friend const Set operator *(Set& ASet, Set& BSet);
@@ -46,11 +51,11 @@ class Set
 
     // find out if ASet contains BSet
     friend void operator >=(Set& ASet, Set& BSet);
-    
+
     // find a character belongs to this Set
     void in(char x);
 
-    private:
+private:
     // array for saving the set elements limit to 256 elements
     char arr[256];
 };
@@ -62,11 +67,11 @@ int main(void)
 
     // read input
     cin >> testCases;
-    
+
     // looping testCases times
     while (testCases--)
     {
-         // ignore or clear one or more characters from the input buffer until new line
+        // ignore or clear one or more characters from the input buffer until new line
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         // declaring 2 sets
@@ -76,14 +81,15 @@ int main(void)
 
         // input for set A and B
         cin >> A;
+
         cin >> B;
 
         // input for a single charater tested in set A or set B
         cin.get(aCharacter);
 
         // output value Set A and B
-        cout <<"A: " << A;
-        cout <<"B: " << B;
+        cout << "A: " << A;
+        cout << "B: " << B;
 
         // Declare Set C for assign it
         Set C;
@@ -111,7 +117,7 @@ int main(void)
         // find if a character belongs to A or B set or not either
         A.in(aCharacter); cout << " A" << endl;
         B.in(aCharacter); cout << " B" << endl;
-        
+
         // a blank between test cases
         cout << endl;
     }
@@ -136,7 +142,7 @@ istream& operator >>(istream& inputStream, Set& ASet)
 
     // sort array by it's ASCII values
     sortArrayBasedOnASCII(ASet.arr);
-    
+
     // remove duplicate
     removeDuplicateCharacter(ASet.arr);
 
@@ -153,11 +159,11 @@ ostream& operator <<(ostream& outputStream, Set& ASet)
     removeDuplicateCharacter(ASet.arr);
 
     cout << "{";
-    
+
     // output the set
     for (int i = 0; i < strlen(ASet.arr); i++)
     {
-        cout << ASet.arr[i]; 
+        cout << ASet.arr[i];
     }
     cout << "}" << endl;
 
@@ -167,8 +173,8 @@ ostream& operator <<(ostream& outputStream, Set& ASet)
 // assigment operator definiton
 Set& Set::operator=(const Set& ASet)
 {
-    int arrayLength = strlen(ASet.arr);
- 
+    int arrayLength = (int) strlen(ASet.arr);
+
     // copy all of it's content to new array
     for (int i = 0; i < arrayLength; i++)
     {
@@ -184,8 +190,8 @@ Set& Set::operator=(const Set& ASet)
 const Set operator +(Set& ASet, Set& BSet)
 {
     // find the sum of two array length
-    int arrayAlength = strlen(ASet.arr);
-    int arrayBlength = strlen(BSet.arr);
+    int arrayAlength = (int) strlen(ASet.arr);
+    int arrayBlength = (int) strlen(BSet.arr);
     int totalLength = arrayAlength + arrayBlength;
 
     Set C;
@@ -226,7 +232,7 @@ const Set operator *(Set& ASet, Set& BSet)
     {
         for (int j = 0; j < strlen(BSet.arr); j++)
         {
-            if(ASet.arr[i] == BSet.arr[j])
+            if (ASet.arr[i] == BSet.arr[j])
             {
                 C.arr[tempIndex] = ASet.arr[i];
                 tempIndex++;
@@ -324,11 +330,11 @@ void Set::in(char x)
     if (found)
         cout << "'" << x << "' is in";
     else
-        cout << "'" << x << "' is not in"; 
+        cout << "'" << x << "' is not in";
 }
 
 // swap 2 values with reference
-void swap (char& a, char& b)
+void swap(char& a, char& b)
 {
     char temp = a;
     a = b;
@@ -356,13 +362,13 @@ void sortArrayBasedOnASCII(char arr[])
 // remove the duplicate character from arr
 void removeDuplicateCharacter(char arr[])
 {
-    int arrayLength = strlen(arr);
+    int arrayLength  = (int) strlen(arr);
 
     // create an dynamic array to save the new array without duplicate elements
-    char *tempArray = new char[arrayLength];
+    char* tempArray = new char[arrayLength];
     if (tempArray == NULL)
     {
-        cout << "Memory allocation failed"<< endl;
+        cout << "Memory allocation failed" << endl;
         return; // Handle memory allocation failure
     }
 
@@ -378,18 +384,18 @@ void removeDuplicateCharacter(char arr[])
 
     // find the non duplicate elements in sorted Set
     for (int i = 0; i < arrayLength; i++)
-    {   
+    {
         // set every j loop
         isDuplicate = false;
 
         // because it is sorted we can assign j = i + 1
-        for (int j = i + 1; j < arrayLength - 1; j++)
+        for (int j = i + 1; j < arrayLength ; j++)
         {
             if (arr[i] == arr[j])
             {
                 isDuplicate = true;
                 break;
-            }   
+            }
         }
 
         // if a elements is not duplicate 
@@ -406,11 +412,11 @@ void removeDuplicateCharacter(char arr[])
     {
         arr[i] = tempArray[i];
     }
+
     // add null terminator
     arr[tempArrayIndex] = '\0';
 
     // free the allocated memory
     delete[] tempArray;
 }
-
 
