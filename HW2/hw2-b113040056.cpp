@@ -64,7 +64,7 @@ int main(void)
 {
     // variable for how much test Cases
     int testCases;
-
+    int cases = 1; // variable for numbering in test Cases
     // read input
     cin >> testCases;
 
@@ -86,6 +86,10 @@ int main(void)
 
         // input for a single charater tested in set A or set B
         cin.get(aCharacter);
+        
+        // printing Test Case #
+        cout << "Test Case " <<  cases << endl;
+        cases++; // increment test case every loop
 
         // output value Set A and B
         cout << "A: " << A;
