@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string.h>
+#include <limits> // for numeric limits
 using namespace std;
 
 // global prototypes
@@ -65,8 +66,8 @@ int main(void)
     // looping testCases times
     while (testCases--)
     {
-        // clearing the input buffer
-        fflush(stdin);
+         // ignore or clear one or more characters from the input buffer until new line
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         // declaring 2 sets
         Set A, B;
