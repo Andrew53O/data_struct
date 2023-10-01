@@ -1,0 +1,2 @@
+
+			currentColumn = three.getTopColumn();

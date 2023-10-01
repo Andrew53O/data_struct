@@ -1,10 +1,10 @@
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 
 // Global prototypes
-bool arrayFull(int array[][3], int size);
-int knightPossibleMove(int row, int column, int previousKmove,  int array[][3], int tableSize);
+bool arrayFull(int array[][5], int size);
+int knightPossibleMove(int row, int column, int previousKmove,  int array[][5], int tableSize);
 
 struct knightMove
 {
@@ -82,7 +82,7 @@ int main(void)
 	// Stack for 3*3 grid
 	Stack three;
 
-	int n = 3;
+	int n = 5;
 
 	int step = 2;
 	int currentRow = 0;
@@ -91,7 +91,7 @@ int main(void)
 
 
 	// starting position
-	array3[0][0] = 1;
+	array5[0][0] = 1;
 
 	do 
 	{
@@ -102,7 +102,7 @@ int main(void)
 		// }
 
 		// check if array full with size n
-		if(arrayFull(array3, 3))
+		if(arrayFull(array5, 5))
 		{
 			cout << "full" << endl;
 			break;
@@ -110,7 +110,7 @@ int main(void)
 
 		cout << "1" << endl;
 
-		int Kmove = knightPossibleMove(currentRow, currentColumn, previousKMove, array3, 3);
+		int Kmove = knightPossibleMove(currentRow, currentColumn, previousKMove, array5, 5);
 
 		// if Knight can moves 
 		if (Kmove >= 0)
@@ -119,27 +119,26 @@ int main(void)
 			// push then add currentRow and currentColumn because we rwemember the original position and Knight moves
 			three.push(currentRow, currentColumn, Kmove);
 
-			cout << "2.1" << endl;
-
 			currentRow += moves[Kmove].row;
 			currentColumn += moves[Kmove].column;
 
-			cout << "2.2" << endl;
-
 			cout << "current => " << currentRow << " " << currentColumn << endl;
 			// visited
-			array3[currentRow][currentColumn] = step;
+			array5[currentRow][currentColumn] = step;
 			step++;
 
 			cout << "2.3" << endl;
 		}
 		else // cannot moves, move to backward position
-		{
+		{		
+				// infinite loop 
+			// array5[currentRow][currentColumn] = 0;
 			// get the information from top node and set it to current row and currentColumn
 			currentRow = three.getTopRow();
 			currentColumn = three.getTopColumn();
 			previousKMove = three.getTopKmove();
 			step--;
+
 			three.pop();
 
 			// No solution Case because it find no possible solution from the starting point
@@ -168,7 +167,7 @@ int main(void)
 	{
 		for (int j = 0; j < n; j++)
 		{	
-			cout << array3[i][j] << " ";
+			cout << setw(3) << array5[i][j];
 		}
 		cout << endl;
 	}
@@ -179,7 +178,7 @@ int main(void)
 }
 
 
-bool arrayFull(int array[][3], int size)
+bool arrayFull(int array[][5], int size)
 {
 	bool isFull = true;
 	for (int i = 0; i < size; i++)
@@ -197,7 +196,7 @@ bool arrayFull(int array[][3], int size)
 	return isFull;
 }
 
-int knightPossibleMove(int row, int column, int previousKMove,  int array[][3], int tableSize)
+int knightPossibleMove(int row, int column, int previousKMove,  int array[][5], int tableSize)
 {
 	// Set the maximum row and column, Explaination : index for array start from 0
 	int maxRow = tableSize;
@@ -209,6 +208,7 @@ int knightPossibleMove(int row, int column, int previousKMove,  int array[][3], 
 	bool canMove = false;
 	int canMoveIndex;
 
+	// previousKMove++;
 	// check possible move from previous Kmove to avoid infinite running
 	for (int i = previousKMove; i < 8; i++)
 	{
