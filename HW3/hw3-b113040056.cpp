@@ -42,7 +42,6 @@ class Stack
 	void clear();
 	void displayStack();
 
-
 	void displayData();
 
 	int getTopRow () {return TopNode->row;}
@@ -53,9 +52,6 @@ class Stack
 	Node *TopNode = NULL;
 
 };
-
-
-
 
 // declare 2D arrays for keep track of it's position
 int array1[1][1] = {0};
@@ -79,7 +75,7 @@ knightMove moves[8] = {
 
 int main(void)
 {
-	// Stack for 3*3 grid
+	// 
 	Stack three;
 
 	int n = 5;
@@ -96,6 +92,18 @@ int main(void)
 	do 
 	{
 		cout << "do while loop" << step << endl;
+
+		if (step)
+		{
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{	
+					cout << setw(3) << array5[i][j];
+				}
+				cout << endl;
+			}
+		}
 		// if (step == 9)
 		// {
 		// 	break;
@@ -108,35 +116,35 @@ int main(void)
 			break;
 		}
 
-		cout << "1" << endl;
-
 		int Kmove = knightPossibleMove(currentRow, currentColumn, previousKMove, array5, 5);
 
 		// if Knight can moves 
 		if (Kmove >= 0)
 		{
-			cout << "2" << endl;
 			// push then add currentRow and currentColumn because we rwemember the original position and Knight moves
 			three.push(currentRow, currentColumn, Kmove);
 
 			currentRow += moves[Kmove].row;
 			currentColumn += moves[Kmove].column;
 
-			cout << "current => " << currentRow << " " << currentColumn << endl;
+			cout << "current => " << currentRow << " " << currentColumn  << " " << Kmove << endl;
 			// visited
 			array5[currentRow][currentColumn] = step;
 			step++;
 
-			cout << "2.3" << endl;
+			if (previousKMove != 0)
+			{
+				previousKMove = 0;
+			}
 		}
 		else // cannot moves, move to backward position
 		{		
-				// infinite loop 
-			// array5[currentRow][currentColumn] = 0;
+			
+			array5[currentRow][currentColumn] = 0;
 			// get the information from top node and set it to current row and currentColumn
 			currentRow = three.getTopRow();
 			currentColumn = three.getTopColumn();
-			previousKMove = three.getTopKmove();
+			previousKMove = three.getTopKmove() + 1;
 			step--;
 
 			three.pop();
@@ -208,7 +216,7 @@ int knightPossibleMove(int row, int column, int previousKMove,  int array[][5], 
 	bool canMove = false;
 	int canMoveIndex;
 
-	// previousKMove++;
+	
 	// check possible move from previous Kmove to avoid infinite running
 	for (int i = previousKMove; i < 8; i++)
 	{

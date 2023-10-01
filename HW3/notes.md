@@ -11,9 +11,10 @@ problem
 
 To Do:
 
-1. ada masalah di lupa nge setting jadiin 0 klo udh coba, coba liat di if elsenya 
-harusnya udh bener kok array5[currentRow][currenColumne] = 0 ga si hmm
+1. bikin if else, klo misal masuk ke baru, setting Kmove jadi 0 
 2. 
+
+
 
 
 10. ganti stack jadi 1 aja , tinggal replace "three"
