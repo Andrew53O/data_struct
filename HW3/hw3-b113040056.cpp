@@ -99,6 +99,12 @@ int main(void)
 
     cout << "When n = 6: " << endl;
 	KnightChess(6);
+
+	cout << "When n = 7: " << endl;
+	KnightChess(7);
+
+	cout << "When n = 8: " << endl;
+	KnightChess(8);
 }
 
 // Test if a knight can visit each position of a chess board in n * n board
