@@ -6,3 +6,15 @@
  16, 19, 21
 
  
+
+
+##More information
+
+CPE star information = https://par.cse.nsysu.edu.tw/~advprog/star.php
+
+Solution by other people
+
+Video explaination = https://www.youtube.com/playlist?list=PLYhy6KLAgQE6QpZ5dUz-p-5dC1bWCTuIi
+
+code only = https://yuihuang.com/cpe-level-1/
+(this is very cool)
