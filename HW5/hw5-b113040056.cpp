@@ -9,6 +9,8 @@ class Node
 
     friend ostream& operator<<(ostream& outputStream, Poly& obj); // Allow operator<< to access private members
     friend Poly operator+(Poly& a, Poly& b); // Allow this function to access operator + 
+    friend Poly operator*(Poly&a, Poly& b); // Allow this * works in this class
+
     private: 
     int coef;
     int exp;
@@ -27,6 +29,7 @@ class Poly
 
     // opearator overloading + 
     friend Poly operator+(Poly& a, Poly& b);
+    friend Poly operator*(Poly&a, Poly& b);
 
     // operator overloading input stream
     friend istream& operator>>(istream& inputStream, Poly& obj);
@@ -49,9 +52,15 @@ int main(void)
     cin >> A;
     cin >> B;
 
+    cout << "A: " << endl;
+    cout << A << endl;
+
+    cout << "B: " << endl;
+    cout << B << endl;
+
     cout << "OUTPUT \n"; 
-    cout << A;
-    cout << B;
+    //cout << A;
+    //cout << B;
 
     cout << "ADD" << endl;
     C = A + B;
@@ -65,6 +74,10 @@ int main(void)
 
 void Poly::insert(int coef, int exp)
 {
+    // 0 case
+    if (coef == 0)
+        return;
+
     // check if already have the exponent n in the polynomial
     // to not create a new node in a polynomial
     if (exponent[exp] == 1)
@@ -102,7 +115,7 @@ void Poly::insert(int coef, int exp)
 
 }   
 
-Node * Poly::findNodewithExp(int exp)
+Node* Poly::findNodewithExp(int exp)
 {
     Node* tempFind = head;
     while(true)
@@ -184,6 +197,32 @@ Poly operator+(Poly& a, Poly& b)
     return C;
 }
 
+Poly operator*(Poly&a, Poly& b)
+{
+    Poly D;
+    cout << "checking *" << endl;
+    // check if whether one of the poly is zero or only contain 
+    if (a.head == NULL || b.head == NULL)
+    {
+        return D;
+    }
+
+    // multiply like usual polynomial 
+    Node * tempA = a.head;
+
+    while(tempA)
+    {
+        Node * tempB = b.head;
+        while(tempB)
+        {
+            D.insert(tempA->coef * tempB->coef, tempA->exp + tempB->exp);
+            tempB = tempB->next;
+        }
+        tempA = tempA->next;
+    }
+    return D;   
+} 
+
 istream& operator >> (istream& inputStream, Poly& obj)
 {   
         cin >> obj.polyCount;
@@ -203,7 +242,7 @@ istream& operator >> (istream& inputStream, Poly& obj)
 
 ostream& operator<<(ostream& outputStream, Poly& obj)
 {
-
+    cout << "format" << endl;
     obj.formatPoly(obj);
 
     // check the result
@@ -222,7 +261,6 @@ ostream& operator<<(ostream& outputStream, Poly& obj)
         }
     }
 
-    
 
     return outputStream;
 }
