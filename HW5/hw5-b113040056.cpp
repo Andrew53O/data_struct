@@ -1,16 +1,17 @@
 #include <iostream>
-
+#include <algorithm>
 using namespace std;
 
 class Poly;
 class Node
 {
-    friend class Poly;
+    friend class Poly; // Poly can access it's private elements
 
     friend ostream& operator<<(ostream& outputStream, Poly& obj); // Allow operator<< to access private members
     friend Poly operator+(Poly& a, Poly& b); // Allow this function to access operator + 
     friend Poly operator*(Poly&a, Poly& b); // Allow this * works in this class
-
+    
+    int getExp() {return exp;} // getter member function
     private: 
     int coef;
     int exp;
@@ -26,6 +27,8 @@ class Poly
     Node* findNodewithExp(int exp);
 
     void formatPoly(Poly& obj);
+
+    static bool compareByExponent(Node* head, Node* tail);
 
     // opearator overloading + 
     friend Poly operator+(Poly& a, Poly& b);
@@ -70,6 +73,12 @@ int main(void)
     D = A * B;
     cout << D << endl;
     return 0;
+}
+
+bool Poly::compareByExponent(Node* head, Node* tail)
+{
+   
+    return (head->getExp() > tail->getExp());
 }
 
 void Poly::insert(int coef, int exp)
@@ -169,8 +178,9 @@ void Poly::formatPoly(Poly& obj)
         delete freeNode;
     }
 
+    cout << "masuk sort" << endl;
     // sort based on the exponent
-
+    sort(&obj.head, &obj.tail, compareByExponent);
 
 }
 

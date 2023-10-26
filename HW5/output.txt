@@ -1,23 +1,24 @@
 A: 
 format
-5 1
--7 0
+3 5
+2 1
 
 B: 
 format
--5 1
-7 0
+-2 1
+1 2
 
 OUTPUT 
 ADD
 format
-0
-0
+3 5
+1 2
 
 MULTIPLY
 checking *
 format
--25 2
-70 1
--49 0
+-6 6
+3 7
+-4 2
+2 3
 
