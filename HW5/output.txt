@@ -1,24 +1,21 @@
-A: 
-format
-3 5
-2 1
-
-B: 
-format
--2 1
-1 2
-
-OUTPUT 
+Case1:
 ADD
-format
+1 2
+1 1
+1 0
+MULTIPLY
+Case2:
+ADD
 3 5
 1 2
-
 MULTIPLY
-checking *
-format
--6 6
 3 7
--4 2
+-6 6
 2 3
-
+-4 2
+Case3:
+ADD
+MULTIPLY
+-25 2
+70 1
+-49 0

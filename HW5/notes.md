@@ -17,4 +17,5 @@ problem
 Ans: becuase I do the formating when cout, and I cout the A and B infront of it
 
 
+1. add klo kosong blm kasi 0 0 
 
