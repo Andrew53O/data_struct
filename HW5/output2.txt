@@ -1,0 +1,5 @@
+OUTPUT 
+0
+0
+1x^2 1x^1 1x^0 OUTPUT THE THE C
+1x^2 1x^1 1x^0 
