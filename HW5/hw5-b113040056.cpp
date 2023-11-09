@@ -263,8 +263,8 @@ istream& operator >> (istream& inputStream, Poly& obj)
         while(obj.polyCount--)
         {
             int tempCoef, tempExp;
-            cin >> tempCoef >>tempExp;
-
+ /           cin >> tempCoef >>tempExp;
+/
             // insert into the head linked list
             obj.insert(tempCoef, tempExp);
             //cout << "masuk" << tempCoef << " " << tempExp;
