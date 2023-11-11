@@ -15,7 +15,7 @@
     2.3 right node
 
 3. tidy up 
-    3.1 delete si 3 get itu
+    3.1 delete si 3 get itu ✔
 
 
 TO DO
@@ -24,12 +24,18 @@ TO DO
 3. tidy up + isi comment
 
 
-
+Problem
 // skrg ga bisa print keluar root datanya apa coba cari tau 
-
+// assign when using recursive 
 
 
 # What I learned
 1. Can use insertHelper in private
 2. lvalue rvalue
-3. 
+3. Recursive need to be assign 
+Ex: 
+root->leftChild = Delete(n, root->leftChild);
+            //  ^
+            //  | we need to reassign like this
+
+            
