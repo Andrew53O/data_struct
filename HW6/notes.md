@@ -9,8 +9,19 @@
         1.2.1 remove have 3 cases
 
         
-2. each node have left and right node 
-3. output it
+2. output
+    2.1 output smallest to largest
+    2.2 left node
+    2.3 right node
+
+3. tidy up 
+    3.1 delete si 3 get itu
+
+
+TO DO
+1. ganti jadi bisa di input
+2. ganti jadi end of input
+3. tidy up + isi comment
 
 
 
