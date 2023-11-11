@@ -7,6 +7,8 @@
     1.1 if not found insert it
     1.2 if found remove it
         1.2.1 remove have 3 cases
+
+        
 2. each node have left and right node 
 3. output it
 
