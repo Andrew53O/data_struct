@@ -31,13 +31,9 @@ Writing to OutputA.txt
 
 --------done-------------
 
-
-4. tingaal buat report jadi deh!
-  4.1 isi excel abistu jadi deh
-
 Now: 
 1. ~~isi baris 1 jt yang merge dll~~
-  1.2 isi comment codenya
+  ~~1.2 isi comment codenya~~
   ~~1.3 isi 5 ratus ribu merge ampe aibs pakek minSelectionSort~~
   ~~1.4 isi 5 pulu ribu merge ampe abis pakek minSelectionSort~~
   1.5 
@@ -49,8 +45,8 @@ Now:
 
 
 problem
-__1. 5000000 ga bisa masukin di array, bisa coba pakke new siapa tau bisa, klo ga pakek vector bisa deh__
-
+~~1. 5000000 ga bisa masukin di array, bisa coba pakke new siapa tau bisa, klo ga pakek vector bisa deh~~
+Solution: Since array have max capacity about 500000, so need to use dynamic allocaction
 
 
 What Can I learned

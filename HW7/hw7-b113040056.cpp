@@ -36,7 +36,7 @@ int main(void)
 {
 	ifstream inputFile; // delcare input stream
 
-	inputFile.open("input5000000.txt"); // read selected file
+	inputFile.open("input.txt"); // read selected file
 	int cases; // n lines of random number
 	inputFile >> cases;
 

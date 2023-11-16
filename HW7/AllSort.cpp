@@ -32,7 +32,7 @@ int main(void)
 {
 	ifstream inputFile;
 
-	inputFile.open("input50000.txt");
+	inputFile.open("input5000000.txt");
 	int cases;
 	inputFile >> cases;
 
@@ -52,12 +52,12 @@ int main(void)
 
 	ofstream outputFile; // declare output stream
 
-	 for (int i = 0; i < 10; i++)
-	 {
-	 	count_selectionSort(arr, cases, outputFile); // sort array using selection sort
+	//  for (int i = 0; i < 10; i++)
+	//  {
+	//  	count_selectionSort(arr, cases, outputFile); // sort array using selection sort
 
-	 	resetArrayValue(arr, copy_arr, cases); // reset back to unsorted array
-	 }
+	//  	resetArrayValue(arr, copy_arr, cases); // reset back to unsorted array
+	//  }
 
 	cout << endl;
 	for (int i = 0; i < 10; i++)
