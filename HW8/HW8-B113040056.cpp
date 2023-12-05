@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 
     ifstream inputFile;
 
-    inputFile.open("media/text.txt", ios::binary);
+    inputFile.open("media/textlong.txt", ios::binary);
 
     if (inputFile.is_open())
     {

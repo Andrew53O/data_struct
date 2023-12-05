@@ -10,3 +10,4 @@ D=011
 
 question: 
 1. apakah di binary code ada '\n'
+2. lanjtuin bikin yang bener treenya
