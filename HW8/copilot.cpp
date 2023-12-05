@@ -8,6 +8,7 @@
 #include <utility> // pair<>
 #include <unordered_map>
 #include <string>
+#include <map>
 using namespace std;
 
 
@@ -41,14 +42,6 @@ struct Node
         this->freq = freq;
         this->left = left;
         this->right = right;
-
-        cout << "udh kena sort" << endl;
-
-        for (const char a: this->ch)
-        {
-            cout << a << " ";
-        }
-        cout << endl;
     }
 };
 
@@ -56,22 +49,42 @@ class huffman_Tree {
     public: 
 
     Node* root;
-    unordered_map<char, string> huffmanCode;
+    unordered_map<string, string> huffmanCode;
+    string originalString = "";
 
-
-    void encode(Node* root, string str,
-			unordered_map<char, string> &huffmanCode)
+    void encode(const Node* root, string str, unordered_map<string, string> &huffmanCode)
     {
         if (root == nullptr)
             return;
 
         // found a leaf node
-        if (!root->left && !root->right) {
+        if (root->left == NULL && root->right == NULL) {
             huffmanCode[root->ch] = str;
         }
 
         encode(root->left, str + "0", huffmanCode);
         encode(root->right, str + "1", huffmanCode);
+    }
+
+    void decode(Node* root, int &index, string str)
+    {
+        if (root == nullptr) {
+            return;
+        }
+
+        // found a leaf node
+        if (root->left == NULL && root->right == NULL)
+        {
+            cout << root->ch;
+            return;
+        }
+
+        index++;
+
+        if (str[index] =='0')
+            decode(root->left, index, str);
+        else
+            decode(root->right, index, str);
     }
 
 
@@ -85,8 +98,8 @@ int main(int argc, char *argv[])
 {
 
     ifstream inputFile;
-
-    inputFile.open("media/textlong.txt", ios::binary);
+    huffman_Tree HF;
+    inputFile.open("media/text.txt", ios::binary);
 
     if (inputFile.is_open())
     {
@@ -96,18 +109,25 @@ int main(int argc, char *argv[])
         while(inputFile.get(c)) 
         {
             if(c == '\n') continue;
-            if(huffman.count(c)) huffman[c]++;
-            else huffman[c] = 1;
-
+            if(huffman.count(c)) 
+            {
+                huffman[c]++;
+                HF.originalString += c;
+            }
+            else 
+            {
+                huffman[c] = 1;
+                HF.originalString += c;
+            }
         }
 
          // Copy key-value pairs from the map to the vector
         vector<pair<char, int>> huffman_vector(huffman.begin(), huffman.end());
         
         // Now vec is sorted by the map's value
-        for (const pair<char, int> &pair : huffman_vector) {
-            cout << pair.first << ": " << pair.second << std::endl;
-        }
+        // for (const pair<char, int> &pair : huffman_vector) {
+        //     cout << pair.first << ": " << pair.second << std::endl;
+        // }
 
         // Create a vector of pointers to nodes
         std::vector<Node*> node_vector;
@@ -117,8 +137,6 @@ int main(int argc, char *argv[])
 
         // Sort the node_vector based on frequency
         std::sort(node_vector.begin(), node_vector.end(), compare);
-
-        Node* root = nullptr;
 
         // creating huffman tree
         while(node_vector.size() > 1)
@@ -147,18 +165,43 @@ int main(int argc, char *argv[])
             // Sort the vector again
             std::sort(node_vector.begin(), node_vector.end(), compare);
 
-            for ( Node* v : node_vector) {
-                cout << v->ch << " :" << v->freq << endl;
-            }
-            root = temp;
+            // for ( Node* v : node_vector) {
+            //     cout << v->ch << " :" << v->freq << endl;
+            // }
+            HF.root = temp;
         }
 
 
         // assign every value to every value 
-
-        // encode
         
-        // decode 
+        // encode
+        HF.encode(HF.root, "", HF.huffmanCode);
+
+        cout << "Huffman Codes are :\n" << '\n';
+
+        // make the map ordered alphabetical 
+        map<string, string> sorted_huffmanCode(HF.huffmanCode.begin(), HF.huffmanCode.end());
+
+        for (const auto &pair : sorted_huffmanCode) {
+            cout << pair.first << " : " << pair.second << '\n';
+        }
+
+        // Encoded the string
+        string str = "";
+        for (char ch: HF.originalString ) {
+            str += HF.huffmanCode[string(1, ch)];
+        }
+
+        cout << "\nEncoded string is :\n" << str << '\n';
+
+        // decode the encoded string
+        int index = -1;
+        cout << "\nDecoded string is: \n";
+        while (index < (int)str.size() - 2) {
+            HF.decode(HF.root, index, str);
+        }
+
+
     }
     else
     {
