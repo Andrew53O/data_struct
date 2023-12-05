@@ -60,6 +60,11 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "chrono": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "unordered_map": "cpp",
+        "xhash": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "sstream": "cpp"
     }
 }
