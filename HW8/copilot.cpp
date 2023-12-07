@@ -60,29 +60,6 @@ class huffman_Tree {
         encode(root->left, str + "0", huffmanCode);
         encode(root->right, str + "1", huffmanCode);
     }
-
-    void decode(Node* root, int &index, string str, ofstream& outputFile)
-    {
-        if (root == nullptr) {
-            return;
-        }
-
-        // found a leaf node
-        if (root->left == NULL && root->right == NULL)
-        {
-            outputFile << root->ch;
-            return;
-        }
-
-        index++;
-
-        if (str[index] =='0')
-            decode(root->left, index, str, outputFile);
-        else
-            decode(root->right, index, str, outputFile);
-    }
-
-
 };
 
 unordered_map<char, int> huffman; 
@@ -95,7 +72,6 @@ int main(int argc, char *argv[])
 {
     ifstream inputFile;
     ofstream outputFile;
-    string name, filename, extension;
     // checking argument line 
     if (argc != 6)
     {
@@ -135,13 +111,10 @@ int main(int argc, char *argv[])
                     cout << "Cannot open the output file" << endl;
                     return -1;
                 }
-                filename = string(argv[5]);
-                name = filename.substr(0, filename.find_last_of("."));
-                extension = filename.substr(filename.find_last_of(".") + 1);    
             }
         }
     }
-
+    // check for compress of decompress
     if (string(argv[1]) == "-c")
     {
         encodeAFile(inputFile, outputFile);
@@ -158,7 +131,6 @@ int main(int argc, char *argv[])
 
 void encodeAFile(ifstream& inputFile, ofstream& outputFile)
 {
-    
     huffman_Tree HF;
     char c;
     int totalBits = 0;
@@ -216,10 +188,6 @@ void encodeAFile(ifstream& inputFile, ofstream& outputFile)
 
         // Sort the vector again
         sort(node_vector.begin(), node_vector.end(), compare);
-
-        // for ( Node* v : node_vector) {
-        //     cout << v->ch << " :" << v->freq << endl;
-        // }
         HF.root = temp;
     }
 
@@ -248,7 +216,6 @@ void encodeAFile(ifstream& inputFile, ofstream& outputFile)
     cout << "Compression Ratio : " << (afterSize/beforeSize) * 100 << "%" << endl;
     cout  << "Encoding table: " << endl;
 
-
     outputFile << "Before Compressing Size : " << totalBits << " bits  " << beforeSize <<  "bytes" << endl;
     outputFile << "After Compressing Size  : "<< str.size() << " bits  "<< afterSize << " bytes" << endl;
     outputFile << "Compression Ratio : " << (afterSize/beforeSize) * 100 << "%" << endl;
@@ -260,11 +227,8 @@ void encodeAFile(ifstream& inputFile, ofstream& outputFile)
         outputFile << pair.first << "=" << pair.second << '\n';
     }
 
-    //string DataOnlyFileName = name + "DataOnly." + extension;  
-    //ofstream compressedDataOnly(DataOnlyFileName, ios::binary);
     outputFile <<"Compressed File: "<< endl;
     outputFile << str << endl; // only print for the output file
-    //compressedDataOnly << str;     
 }
 
 void decodeAFile(ifstream& inputFile, ofstream& outputFile)
@@ -326,21 +290,13 @@ void decodeAFile(ifstream& inputFile, ofstream& outputFile)
     outputFile << Res_decompressData << endl;
 }
 
-
 // function to sort based on the frequencty and lexical order
 // because I want to pop from back it need to sort 
 // high -> low frequency, less -> big lexical order
 bool compare(const Node* a,const  Node* b)
 {
-     
 	if (a->freq != b->freq )
-    {
         return a->freq > b->freq;
-    }
-    else   
-    {
-        // compare for lexical order, biggest to smallest z y .. b a
-        return (a->ch.at(0)) > (b->ch.at(0)); 
-    }
-        
+    else   // compare for lexical order, biggest to smallest z y .. b a
+        return (a->ch.at(0)) > (b->ch.at(0));    
 }

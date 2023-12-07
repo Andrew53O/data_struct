@@ -17,3 +17,9 @@ to do
 1. rappin code
 2. isi comment 
 3. bikin gui 
+
+GUI
+1. bikin semua function normal jadi 
+2. 
+
+last. place using place() for abosulota postion 
