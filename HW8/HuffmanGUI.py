@@ -60,17 +60,15 @@ def enable_button(*args):
         
 def encode():
     global outputFileName
-    print("filename->", filename)
-    # need to run in the copilot folder
-    process = Popen(['./copilot', '-c', '-i', filename, '-o', outputFileName], stdout=PIPE, stderr=STDOUT)
+    # need to run in the ./HW8-B113040056 exist folder
+    process = Popen(['./HW8-B113040056', '-c', '-i', filename, '-o', outputFileName], stdout=PIPE, stderr=STDOUT)
     for line in process.stdout:
         output_panel.insert('end', line)
         output_panel.see('end')
 
 def decode():
     global outputFileName
-    #print("outputfilename = ", outputFileName)
-    subprocess.call(['./copilot.exe', '-u', '-i', filename, '-o', outputFileName]) #call the c++ 
+    subprocess.call(['./HW8-B113040056', '-u', '-i', filename, '-o', outputFileName]) #call the c++ 
     
 
 
