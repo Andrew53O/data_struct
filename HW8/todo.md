@@ -19,9 +19,7 @@ to do
 3. bikin gui 
 
 GUI
-1. bikin semua function normal jadi 
-2. bikin decode button
-3. bikin panel buat stdout.
-4. clear input file selection
+1. bawahin panelnya!
+
 
 last. place using place() for abosulota postion 
