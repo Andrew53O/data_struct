@@ -1,0 +1,23 @@
+1
+20 20 1
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+abbaaaaaaabbbbabbaab
+babbbaabaabbababbbab
+bbbbbaabbabbbbaabaaa
+bbbbababaababaababab
+abbaaabbabaaabbbabba
+bbbaaabaaababbabaaba
+aaababbbbbaaaaabbaab
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb
+16 18
