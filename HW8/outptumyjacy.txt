@@ -1,0 +1,9 @@
+Original: 72
+Compressed: 18
+Ratio: 16
+A=00
+C=01
+B=10
+D=11
+
+$� 
