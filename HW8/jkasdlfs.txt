@@ -1,0 +1,10 @@
+Before Compressing Size : 72 bits  9bytes
+After Compressing Size  : 18 bits  2.25 bytes
+Compression Ratio : 25%
+Encoding table: 
+A=00
+B=010
+C=1
+D=011
+Compressed File: 
+000101000101000111

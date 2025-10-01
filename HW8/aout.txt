@@ -1,0 +1,14 @@
+Before Compressing Size : 96 bits  12bytes
+After Compressing Size  : 35 bits  4.375 bytes
+Compression Ratio : 36.4583%
+Encoding table: 
+A=0000
+C=0001
+D=1000
+H=101
+I=1001
+J=11
+M=001
+S=01
+Compressed File: 
+11010000100111100000011011110101001
