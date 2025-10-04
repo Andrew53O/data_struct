@@ -1,24 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <cmath>
 
-int main(void)
+using namespace std; 
+
+int main()
 {
-    int n;
-	while(cin >> n)
+	int in; 
+	while(cin >> in)
 	{
-        int ans = n;
-        while(n >= 3)
-        {   
-            int left = n % 3;
-            n /= 3;
-            ans += n;
-            n = n + left;
-        }
-        if ((n+ 1) % 3 == 0)
-            ans++;
-        cout << ans << endl;
-
-		
+		cout << floor(in * 1.5) << endl;
 	}
 	return 0;
 }

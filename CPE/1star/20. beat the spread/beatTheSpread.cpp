@@ -9,7 +9,7 @@ int main(void)
 	{
 		int a ,b; cin >> a >> b;
 		bool found = false;
-		bool out = false;
+		bool out = false;a
 		for (int i = a; i >= b; i--)
 		{
 			for (int j = 0; j < i; j++)
