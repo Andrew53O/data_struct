@@ -9,3 +9,12 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 - sort custom function
 
 
+# Some useful library & function 
+
+`#include <cmath>` 
+- sqrt()
+- ceil()
+- floor()
+- pow()
+- abs() / fabs()
+
