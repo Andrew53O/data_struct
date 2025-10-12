@@ -5,8 +5,9 @@ using namespace std;
 int findCarry(int a, int b)
 {
 	int count = 0; 
+	int carry = 0; 
 	int nA = 0; int nB = 0;
-	while(a!= 0 && b != 0)
+	while(a!= 0 || b != 0)
 	{
 		nA = a % 10 ;
 		a /= 10;
@@ -14,10 +15,14 @@ int findCarry(int a, int b)
 		nB = b % 10; 
 		b /= 10;
 		
-		if (nA + nB > 9)
+		if (nA + nB + carry > 9)
 		{
 			count++; // one carry operation
-			a++; // add one to the front 
+			carry = 1; // add one to the front 
+		}
+		else
+		{
+			carry = 0;	
 		}
 	}
 	
