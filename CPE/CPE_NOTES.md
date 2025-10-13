@@ -25,7 +25,15 @@ std::reverse(string.begin(), string.end())
 
 `#include <string>`
 - stoi() <br>
+- getline() <br>
+getline(cin, str)
 string to integer 
+
+`#include <map>`
+- find() <br>
+.find(), if found it return pointer to the entry, if not returns a special iterator that pionst to the end of the map
+auto it = example_map.find(c)
+if (it != example_map.end()) // does not find
 
 # Some rules
 
