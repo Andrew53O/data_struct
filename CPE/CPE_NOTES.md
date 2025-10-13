@@ -18,6 +18,14 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 - pow()
 - abs() / fabs()
 
+`#include <algorithm>`
+- reverse()<br>
+std::reverse(string.begin(), string.end())
+, string.end());
+
+`#include <string>`
+- stoi() <br>
+string to integer 
 
 # Some rules
 
