@@ -27,7 +27,7 @@ int main(void)
 			
 			int one = keyboard.find(input[i]);
 			one-=2;
-			if(one < 0)one += input.length(); // pinter
+			if(one < 0)one += input.length(); // modulo
 			output+=keyboard[one];
 			
 		}

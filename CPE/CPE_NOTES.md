@@ -29,11 +29,21 @@ std::reverse(string.begin(), string.end())
 getline(cin, str)
 string to integer 
 
+`#include <cctype>`
+- tolower()
+- toupper()
+
 `#include <map>`
 - find() <br>
 .find(), if found it return pointer to the entry, if not returns a special iterator that pionst to the end of the map
 auto it = example_map.find(c)
 if (it != example_map.end()) // does not find
+it -> first // for key value
+it -> second // for value 
+
+`#include <unordered_map>` 
+unordered_map<char, char> decoder  = {{'x', 'a'}, ....} 
+- decodder.at(x); // return a
 
 # Some rules
 
