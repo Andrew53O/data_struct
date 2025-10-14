@@ -17,6 +17,12 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 - floor()
 - pow()
 - abs() / fabs()
+- sin(), cos(), tan(), acos()
+
+Find pi = acos(-1.0);
+
+sin, cos, tan use radians
+pi * radians = 180 degree
 
 `#include <algorithm>`
 - reverse()<br>
