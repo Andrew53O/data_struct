@@ -36,19 +36,8 @@ int main(void)
 			continue;
 		}
 		
-		// sort based on alphabetical order
-		for (int i = 0; i < output.length() - 1; i++)
-		{
-			for (int j = i + 1; j < output.length() ;j++)
-			{
-				if (output[i] > output[j])
-				{
-					char temp = output[i];
-					output[i] = output[j];
-					output[j] = temp;
-				}
-			}
-		}	
+		// sort based on alphabetical order using sort() function
+		sort(output.begin(), output.end());
 		
 
 		cout << output << endl;
