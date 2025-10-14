@@ -11,6 +11,10 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
 # Some useful library & function 
 
+`#include <iomanip>`
+- fixed 
+- setprecision(x)
+
 `#include <cmath>` 
 - sqrt()
 - ceil()
