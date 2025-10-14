@@ -30,6 +30,7 @@ std::reverse(string.begin(), string.end())
 - getline() <br>
 getline(cin, str)
 string to integer 
+- clear() <br>
 
 `#include <cctype>`
 - tolower()
