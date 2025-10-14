@@ -23,6 +23,8 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 std::reverse(string.begin(), string.end())
 , string.end());
 
+- min(), max()
+
 `#include <string>`
 - stoi() <br>
 - getline() <br>
@@ -44,6 +46,8 @@ it -> second // for value
 `#include <unordered_map>` 
 unordered_map<char, char> decoder  = {{'x', 'a'}, ....} 
 - decodder.at(x); // return a
+
+Note: can't access unordered_map like an array 
 
 # Some rules
 
@@ -71,3 +75,11 @@ unordered_map<char, char> decoder  = {{'x', 'a'}, ....}
 * **Divisible by 13:** (Choose one method)
     * **Method A:** Repeatedly **add 4 times the last digit** to the rest of the number.
     * **Method B:** The **alternating sum of 3-digit blocks** (from right to left) is divisible by 13.
+
+
+# Some Concept
+
+- Subsequence: A smaller string made by deleting zero or more characters from a bigger string, without changing the order of the remaining characters.<br>Example: "ace" is a subsequence of "abcde".
+
+- Permutation: A rearrangement of the letters in a string.<br>
+Example: Permutations of "no" are "no" and "on"
