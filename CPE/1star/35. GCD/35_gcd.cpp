@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+// Euclidean algorithm
 int GCD(int a, int b)
 {
 	if (a == 0)
