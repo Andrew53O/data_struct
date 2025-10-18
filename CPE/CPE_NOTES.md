@@ -8,6 +8,17 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 ### Sort! Sort!! Sort!!!
 - sort custom function
 
+### GCD
+- need to understand euclidean algorithm 
+
+Note: when two lengths are both multiples of the same tiny piece, they are called *commensurable*. 
+
+Euclidean algorithm tells that gcd(a,b) = gcd(b, remainder(a,b)), for b is  not 0
+
+proof = a = qb + r, any divisor of 2 of these terms must divide all 3 terms, 
+so a, b and b, have the same divisors 
+
+
 
 # Some useful library & function 
 
@@ -87,6 +98,10 @@ Note: can't access unordered_map like an array
     * **Method A:** Repeatedly **add 4 times the last digit** to the rest of the number.
     * **Method B:** The **alternating sum of 3-digit blocks** (from right to left) is divisible by 13.
 
+
+## Finding a prime number
+
+- for loop through for (int i = 3; i * i <= n; i+=2) if (n % i == 0) return false
 
 # Some Concept
 
