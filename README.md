@@ -3,7 +3,7 @@
 
 
  ## Current question that doesn't pass the system ( 未通過暗中測資 )
- 16, 19, 21, 31, 33, 36, 38, 39, 41, 42, 48
+ 16, 19, 21, 36, 38, 39, 41, 42, 48
 
  
 

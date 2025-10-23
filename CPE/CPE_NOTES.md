@@ -3,6 +3,19 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
+10/23/2025: 21/49
+
+from start to fibonnci base (excluded) = 17
++
+- satellites
+- gcd 
+- simply emirp 
+- all you need is love
+
+
+
+
+
 ## Tricky problem
 
 ### Sort! Sort!! Sort!!!
@@ -18,6 +31,13 @@ Euclidean algorithm tells that gcd(a,b) = gcd(b, remainder(a,b)), for b is  not 
 proof = a = qb + r, any divisor of 2 of these terms must divide all 3 terms, 
 so a, b and b, have the same divisors 
 
+### All you need is love 
+
+Need to add these 2 lines, otherwise it won't pass 
+
+ios_base::sync_with_stdio(false); cuts the synchronization with C's I/O.
+
+cin.tie(NULL); unties cin from cout, which stops the program from flushing the output buffer every time you ask for input.
 
 
 # Some useful library & function 
@@ -109,3 +129,13 @@ Note: can't access unordered_map like an array
 
 - Permutation: A rearrangement of the letters in a string.<br>
 Example: Permutations of "no" are "no" and "on"
+
+
+# Data Type
+
+| Type              | Typical Size      | Typical Range                    | Key Feature                            |
+| ----------------- | ----------------- | -------------------------------- | -------------------------------------- |
+| `int`             | 32 bits           | ~ -2.1 billion to +2.1 billion   | Default, general purpose.              |
+| `unsigned int`    | 32 bits           | ~ 0 to +4.2 billion              | Non-negative values only.              |
+| `long int`        | 32 or 64 bits     | Varies by system                 | Larger than or equal to `int`.         |
+| `long long int`   | 64 bits           | ~ -9 quintillion to +9 quintillion | For very large integer values.         |
