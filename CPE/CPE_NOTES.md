@@ -3,9 +3,9 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 25/49
+10/23/2025: 26/49
 
-from start to satellies (included) = 22
+from start to tell me the frequencies (included) = 22
 
 - gcd 
 - simply emirp 
@@ -46,12 +46,18 @@ vector<bool> isComplete(5, false);
 
 ## Data Structure
 
+### Unordered Map
 `#include <unordered_map>`
 - find()
 - insert() <br>
 auto check = unorderedMap.insert(num);
 check.first // the iterator
 check.second // the boolean value of duplicate 
+
+### Array (C style)
+from #include algorithm <br>
+fill(arr, arr + 128, 0);
+
 
 `#include <iomanip>`
 - fixed 
