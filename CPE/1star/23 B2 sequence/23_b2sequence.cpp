@@ -41,15 +41,20 @@ int main(void)
 		
 		if (isB2)
 		{
+		
 			for (int i = 0; i + 1 < v.size(); i++)
 			{
-				auto check = pairSum.insert(v[i + 1] - v[i]);
+				for (int j = i + 1; j < v.size(); j++)
+				{
+				auto check = pairSum.insert(v[i] + v[j]);
 				
 				if(check.second == false)
 				{
 					isB2 = false;
 					break;
 				}
+				}
+			
 			}
 		}
 		
@@ -65,7 +70,8 @@ int main(void)
 		
 		
 		// reset vector 
-		fill(v.begin(), v.end(), 0);
+		v.clear();
+		pairSum.clear();
 		isFirst = true;
 		
 		count++;
