@@ -3,11 +3,10 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 24/49
+10/23/2025: 25/49
 
-from start to jolly  jumpter (included) = 20
-+
-- satellites
+from start to satellies (included) = 22
+
 - gcd 
 - simply emirp 
 - all you need is love
@@ -89,6 +88,7 @@ std::fill(arr.begin(), arr.end(), false); // fill all values to false
 getline(cin, str)
 string to integer 
 - clear() <br>
+- to_string(num) // convert num to string
 
 `#include <cctype>`
 - tolower()
