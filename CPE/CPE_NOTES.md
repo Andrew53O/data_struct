@@ -3,9 +3,9 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 23/49
+10/23/2025: 24/49
 
-from start to jolly  jumpter (included) = 19
+from start to jolly  jumpter (included) = 20
 +
 - satellites
 - gcd 
@@ -44,6 +44,15 @@ cin.tie(NULL); unties cin from cout, which stops the program from flushing the o
 
 ## Initialize vector
 vector<bool> isComplete(5, false); 
+
+## Data Structure
+
+`#include <unordered_map>`
+- find()
+- insert() <br>
+auto check = unorderedMap.insert(num);
+check.first // the iterator
+check.second // the boolean value of duplicate 
 
 `#include <iomanip>`
 - fixed 
@@ -147,3 +156,5 @@ Example: Permutations of "no" are "no" and "on"
 | `unsigned int`    | 32 bits           | ~ 0 to +4.2 billion              | Non-negative values only.              |
 | `long int`        | 32 or 64 bits     | Varies by system                 | Larger than or equal to `int`.         |
 | `long long int`   | 64 bits           | ~ -9 quintillion to +9 quintillion | For very large integer values.         |
+
+
