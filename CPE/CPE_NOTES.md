@@ -3,9 +3,9 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 21/49
+10/23/2025: 23/49
 
-from start to fibonnci base (excluded) = 17
+from start to jolly  jumpter (included) = 19
 +
 - satellites
 - gcd 
@@ -42,6 +42,9 @@ cin.tie(NULL); unties cin from cout, which stops the program from flushing the o
 
 # Some useful library & function 
 
+## Initialize vector
+vector<bool> isComplete(5, false); 
+
 `#include <iomanip>`
 - fixed 
 - setprecision(x)
@@ -51,7 +54,8 @@ cin.tie(NULL); unties cin from cout, which stops the program from flushing the o
 - ceil()
 - floor()
 - pow()
-- abs() / fabs()
+- abs() / fabs() <br>
+abs(v[i] - v[i + 1])
 - sin(), cos(), tan(), acos()
 
 Find pi = acos(-1.0);
@@ -63,7 +67,11 @@ pi * radians = 180 degree
 - reverse()<br>
 std::reverse(string.begin(), string.end())
 , string.end());
-
+- find() <br>
+// Check if the "find" function reached the end without finding 'false'
+bool all_true = (std::find(arr.begin(), arr.end(), false) == arr.end());
+- fill() <br>
+std::fill(arr.begin(), arr.end(), false); // fill all values to false
 - min(), max()
 
 `#include <string>`
