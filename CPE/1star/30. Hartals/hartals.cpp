@@ -35,10 +35,8 @@ int main(void)
             // runing n days
             for (int j = array[i]; j <= nDays; j += array[i])
             {
-                                // tricky in here, since it tell us there will not be multiple of 7
-                                // but that doesn't guarantee other number will not multiple of 7 
-
-                                // need to j - 1, becuse it is array 
+                // Exclude friday and saturday 
+                // need to j - 1, becuse it is array 
                 if ((j % 7) != 6 && (j % 7) != 0 && beenTo[j - 1] == false ) 
                 {
                     res++;
