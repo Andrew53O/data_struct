@@ -12,6 +12,8 @@
 
 CPE star information = https://par.cse.nsysu.edu.tw/~advprog/star.php
 
+https://cpe.mcu.edu.tw/environment.php
+
 ## Solution by other people
 
 Video explaination = https://www.youtube.com/playlist?list=PLYhy6KLAgQE6QpZ5dUz-p-5dC1bWCTuIi

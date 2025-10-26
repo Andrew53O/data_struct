@@ -44,6 +44,9 @@ cin.tie(NULL); unties cin from cout, which stops the program from flushing the o
 ## Initialize vector
 vector<bool> isComplete(5, false); 
 
+### 2d vector
+vector<vector<char>> arr(h, vector<char>(w, '0');
+
 ## Data Structure
 
 ### Unordered Map
