@@ -3,13 +3,9 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 26/49
+10/23/2025: 31/49
 
-from start to minesweeper (included) = 23
-
-- gcd 
-- simply emirp 
-- all you need is love
+from start to all you need is love 
 
 
 
