@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Recursive, calculate the last digits, until < 10 
 long int compute(long int n)
 {
 	if (n < 10)
@@ -13,9 +14,6 @@ long int compute(long int n)
 		
 		return compute(mod + compute(n));
 	}
-		
-
-
 }
 
 int main(void)
