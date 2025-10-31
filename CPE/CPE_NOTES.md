@@ -38,12 +38,25 @@ ios_base::sync_with_stdio(false); cuts the synchronization with C's I/O.
 
 cin.tie(NULL); unties cin from cout, which stops the program from flushing the output buffer every time you ask for input.
 
+### A mid summer nights dream
+
+- **Mean** minimizes the sum of squared deviations:  
+  $\displaystyle \min_A \sum (x_i - A)^2$
+
+- **Median** minimizes the sum of absolute deviations:  
+  $\displaystyle \min_A \sum |x_i - A|$
+
 
 # Some useful library & function 
 
 ## Initialize vector
 vector<bool> isComplete(5, false); 
 
+### Vector 
+`#include <vector>`
+- back() return the last value
+- void pop_back() just pop value, doens't return anything
+- clear() clear the vector and keeps the allocated capacity
 ### 2d vector
 vector<vector<char>> arr(h, vector<char>(w, '0');
 
@@ -61,10 +74,7 @@ check.second // the boolean value of duplicate
 from #include algorithm <br>
 fill(arr, arr + 128, 0);
 
-### Vector 
-`#include <vector>`
-- back() return the last value
-- void pop_back() just pop value, doens't return anything
+
 
 `#include <iomanip>`
 - fixed 
