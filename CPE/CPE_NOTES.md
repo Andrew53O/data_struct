@@ -5,7 +5,7 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
 10/23/2025: 26/49
 
-from start to tell me the frequencies (included) = 22
+from start to minesweeper (included) = 23
 
 - gcd 
 - simply emirp 
@@ -61,6 +61,10 @@ check.second // the boolean value of duplicate
 from #include algorithm <br>
 fill(arr, arr + 128, 0);
 
+### Vector 
+`#include <vector>`
+- back() return the last value
+- void pop_back() just pop value, doens't return anything
 
 `#include <iomanip>`
 - fixed 
@@ -89,7 +93,14 @@ std::reverse(string.begin(), string.end())
 bool all_true = (std::find(arr.begin(), arr.end(), false) == arr.end());
 - fill() <br>
 std::fill(arr.begin(), arr.end(), false); // fill all values to false
-- min(), max()
+- min(), max() Comparing two specific known values or variables.
+- min_element(), max_element() returning iterator <br>
+auto min_it = min_element(v.begin(), v.end());
+    cout << "Min value: " << *min_it << endl; // Output: 1
+
+    // Find the maximum element
+    auto max_it = max_element(v.begin(), v.end());
+    cout << "Max value: " << *max_it << endl; // Output: 9
 
 `#include <string>`
 - stoi() <br>

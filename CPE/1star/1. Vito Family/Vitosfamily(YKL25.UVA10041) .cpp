@@ -25,7 +25,7 @@ int main(void)
 		int left = 0;
 		int right = arow - 1;
 		
-		
+		// directly calculating the equivalent sum of pairwise differences from the sorted array.
 		while(left <= right)
 		{
 			sum += v[right] - v[left];
