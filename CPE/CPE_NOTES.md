@@ -5,10 +5,12 @@ list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
 10/23/2025: 31/49
 
-from start to all you need is love 
+from start to train sweeping
 
-
-
+## Some word needs to memorize
+`#include <bits/stdc++.h>`
+ios::sync_with_stdio(fals); 
+cin.tie(null);
 
 
 ## Tricky problem
