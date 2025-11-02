@@ -70,6 +70,20 @@ check.second // the boolean value of duplicate
 from #include algorithm <br>
 fill(arr, arr + 128, 0);
 
+### Deque (double ended queue)
+`#include <deque>`
+used like vector
+
+- push_back(value): Adds an element value to the end of the deque. O(1) amortized. 
+- push_front(value): Adds an element value to the beginning of the deque. O(1) amortized.
+- pop_back(): Removes the last element from the deque. O(1).
+- pop_front(): Removes the first element from the deque. O(1).
+- operator[](index): Accesses the element at position index. Does not perform bounds checking. O(1).
+- at(index): Accesses the element at position index. Does perform bounds checking, throws std::out_of_range if invalid. O(1).
+- front(): Returns a reference to the first element. Undefined if deque is empty. O(1).
+- back(): Returns a reference to the last element. Undefined if deque is empty. O(1).
+- size(): Returns the number of elements currently in the deque. O(1).
+- empty(): Returns true if the deque has no elements, false otherwise. O(1).
 
 
 `#include <iomanip>`
@@ -111,10 +125,18 @@ auto min_it = min_element(v.begin(), v.end());
 `#include <string>`
 - stoi() <br>
 - getline() <br>
-getline(cin, str)
-string to integer 
+getline(cin, str) <br>
+note: **getline() reads until newline — including leading whitespace if present.
+So when switching between them, always clean the buffer with cin.ignore().**
+
 - clear() <br>
 - to_string(num) // convert num to string
+
+`#include <sstream>`
+to convert string as if it were input coming from the console <br>
+stringstream ss(input_string); <br> or
+ss.str(input_string);
+
 
 `#include <cctype>`
 - tolower()
