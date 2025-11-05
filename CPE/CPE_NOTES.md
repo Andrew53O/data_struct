@@ -47,6 +47,10 @@ cin.tie(NULL); unties cin from cout, which stops the program from flushing the o
 
 # Some useful library & function 
 
+## cin
+- cin can cin >> N >> eq >> value;   // with input:  N = 3 <br>
+getting the value of 3 in the value variable
+
 ## Initialize vector
 vector<bool> isComplete(5, false); 
 
