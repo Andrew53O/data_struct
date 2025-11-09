@@ -13,13 +13,13 @@ int main(void)
 		int currentA = a + b;
 		int countA = 0;
 		
-		// get the leading steps; 
+		// get the leading steps; (calculate sum of 1 to currentA)
 		for (int i =  1; i <= currentA; i++)
 		{
 			countA += i;
 		}
 		
-		// calculate the advanced
+		// calculate the advanced (offset of the diagonal)
 		countA += (currentA - b);
 		
 		
