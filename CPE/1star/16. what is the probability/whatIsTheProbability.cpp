@@ -1,38 +1,33 @@
-
-
-//  I don't know why it failed when submit it!
-
-
-#include <bits/stdc++.h>
+#include <iostream> 
+#include <cmath>
+#include <iomanip>
+// #include <bits/stdc++.h>
 
 using namespace std;
 
 int main(void)
-{
-	int n;
+{	
+	double s, n, p, l; 
 	
-	cin >> n;
+	cin >> s; 
 	
-	while(n--)
+	for (int i = 0; i < s; i++)
 	{
-		int m;
-		double p;
-	
-		int k;
-		cin >> m >> p >> k;
+		cin >> n >> p >> l; 
 		
-		double q = (1.0 - p);
-		
-		
-		if (p == 0) cout << "0.0000" << endl;
-		else 
+		if (p == 0) 
 		{
-			double result = (pow(q, (double)k -1) * p) / (1- pow(q,(double) m));
-			
-			cout << fixed << setprecision(4) <<  result << endl;
+			cout << "0.0000" << endl;
+			continue;
 		}
-			
+		
+		double calc1 = 1.0 / (1.0 - pow((1.0 - p), n));
+		double calc2 = pow((1 - p), l - 1) * p; 
+		
+		cout << fixed << setprecision(4) << calc1 * calc2 << endl;
+	
 	}
+	
 
 	return 0;
 }
