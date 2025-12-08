@@ -3,9 +3,9 @@
 # 1 star
 list: https://cpe.cse.nsysu.edu.tw/environment.php#starList
 
-10/23/2025: 32/49
+10/23/2025: 38/49
 
-from start to bangla numbers
+from start to what is the probablity
 
 ## Some word needs to memorize
 `#include <bits/stdc++.h>`
