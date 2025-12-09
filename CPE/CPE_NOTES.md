@@ -136,7 +136,7 @@ note: **getline() reads until newline — including leading whitespace if presen
 So when switching between them, always clean the buffer with cin.ignore().**
 
 - clear() <br>
-- to_string(num) // convert num to string
+- to_string(num) // convert num pto string
 
 `#include <sstream>`
 to convert string as if it were input coming from the console <br>
