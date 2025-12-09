@@ -1,39 +1,41 @@
-#include <bits/stdc++.h>
-
+#include  <iostream> 
+// #include <bits/stdc++.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 int main(void)
-{
-	string s[100];
+{	
+	string s;
 	
-	int index = 0;
-	int maxlength = 0;
-	while(getline(cin, s[index]))
+	vector<string> v; 
+	
+	int big = 0;
+	
+	while(getline(cin,s))
 	{
-	
-		if (s[index].length() > maxlength)
-			maxlength = s[index].length();
+		v.insert(v.begin(), s);
 		
-		index++;
-	}
-	for (int i = 0; i < maxlength; i++)
-	{
-		for (int j = index - 1; j >= 0; j--)
+		int ne = s.length();
+		
+		if (ne > big)
 		{
-			try
-			{
-				cout << s[j].at(i);
-			}
-			catch ( std::out_of_range)
-			{
-				if(j != 0)
-					cout << " ";
-			}
-			// klo out of range tinggal print " " kelar
+			big = ne;
+		}
+	}
+	
+	for (int j = 0; j < big; j++)
+	{
+		for (int i = 0; i < v.size(); i++)
+		{
+			if (j >= v[i].length())
+			    cout << ' ';
+			else
+			    cout << v[i][j];
 		}
 		cout << endl;
-		
 	}
-	
+
+
 	return 0;
 }
