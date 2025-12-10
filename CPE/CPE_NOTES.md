@@ -127,6 +127,10 @@ auto min_it = min_element(v.begin(), v.end());
     // Find the maximum element
     auto max_it = max_element(v.begin(), v.end());
     cout << "Max value: " << *max_it << endl; // Output: 9
+- sort() custom function rule: 
+Comparator rule: custom(int &a, int &b)
+TRUE → a comes before b
+FALSE → a stays after b
 
 `#include <string>`
 - stoi() <br>
